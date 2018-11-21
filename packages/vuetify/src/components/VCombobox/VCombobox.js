@@ -209,7 +209,11 @@ export default {
       // If menu index is greater than 1
       // the selection is handled elsewhere
       // TODO: find out where
-      if (menuIndex > -1) return (this.internalSearch = null)
+      if (menuIndex > -1) {
+        return (this.internalSearch = null)
+      } else {
+        this.$emit('new-item', this.internalSearch)
+      }
 
       this.selectItem(this.internalSearch)
       this.internalSearch = null
